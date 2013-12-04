@@ -1,0 +1,16 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+}
+
+li {
+	list-style-type: none;
+}
+
+.content {
+	margin: 0 auto;
+	width: 60%;
+	text-align: left;
+}
