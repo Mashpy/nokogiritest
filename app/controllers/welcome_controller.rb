@@ -3,17 +3,16 @@ require 'nokogiri'
 require 'open-uri'
 
 
-class WelcomeController < ApplicationController	
+class WelcomeController < ApplicationController 
 
 def index
-    doc = Nokogiri::HTML(open("http://www.eslcafe.com/joblist/"))
-    @itemarray = []
-    doc.css("dd strong a").collect { |link| link['href']}.each do |item|
-    @itemarray << item
-    end
+    doc = Nokogiri::HTML(open("http://esljobs.herokuapp.com/"))
     @titlearray = []
-        doc.css("dd strong a").each do |title|
-    @titlearray << title
+        doc.css(".home_wrapper").each do |s|
+            titlecss = s.css("strong a").text
+    linkcss = s.css("strong a").collect { |link| link['href']}
+    @titlearray << titlecss
+    @titlearray << linkcss
     end
 end
 end
